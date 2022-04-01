@@ -12,9 +12,9 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new TestPanel());
-        setVisible(true);
+        add(new Panel());
         pack();
+        setVisible(true);
         setLocationRelativeTo(null);
 
     }

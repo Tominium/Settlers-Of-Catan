@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Hexagon extends Polygon {
 
@@ -80,12 +81,12 @@ public class Hexagon extends Polygon {
         }
     }
 
-    public void draw(Graphics2D g, int x, int y, int lineThickness, int colorValue, boolean filled) {
+    public void draw(Graphics2D g) {
         // Store before changing.
         Stroke tmpS = g.getStroke();
         Color tmpC = g.getColor();
         try{
-            g.setPaint(new TexturePaint(ImageIO.read(Tile.class.getResource("Hexagons/" + arr[(int)((Math.random()*6)+0)] + ".png")), this.getBounds2D()));
+            g.setPaint(new TexturePaint(getImage(), this.getBounds2D()));
             g.fillPolygon(this);
 //            System.out.println(x + " " + y);
         }
@@ -104,5 +105,9 @@ public class Hexagon extends Polygon {
         // Set values to previous when done.
         g.setColor(tmpC);
         g.setStroke(tmpS);
+    }
+
+    public BufferedImage getImage(){
+        return null;
     }
 }
