@@ -19,7 +19,7 @@ public class Tile extends Hexagon {
 
     public BufferedImage getImage(){
         try{
-            return ImageIO.read(Tile.class.getResource("Hexagons/" + type + ".png"));
+            return ImageIO.read(Tile.class.getResource("Assets/Hexagons/" + type + ".png"));
         }
         catch(IOException e){return null;}
     }
