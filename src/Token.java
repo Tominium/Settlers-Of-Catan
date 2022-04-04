@@ -10,7 +10,7 @@ public class Token {
     public Token(int num) {
         number = num;
         try {
-            image = ImageIO.read(Token.class.getResource("Token/prob"+num+".png"));
+            image = ImageIO.read(Token.class.getResource("Token/prob_"+num+".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
