@@ -23,4 +23,8 @@ public class Tile extends Hexagon {
         }
         catch(IOException e){return null;}
     }
+
+    public String getType(){
+        return type;
+    }
 }
