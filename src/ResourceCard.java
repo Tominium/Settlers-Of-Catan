@@ -10,11 +10,7 @@ public class ResourceCard {
     public ResourceCard(String rcName) {
         rc = rcName;
         try {
-            rcFront = ImageIO.read(ResourceCard.class.getResource(""));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
+            rcFront = ImageIO.read(ResourceCard.class.getResource("Assets/Resource_Cards/"+rc+".png"));
             rcBack = ImageIO.read(ResourceCard.class.getResource(""));
         } catch (IOException e) {
             e.printStackTrace();

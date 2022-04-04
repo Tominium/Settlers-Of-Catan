@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import javax.swing.*;
 
-public class Panel extends JLayeredPane {
+public class GameBoard extends JLayeredPane {
     private static final long serialVersionUID = 1L;
     private final int WIDTH = 1200;
     private final int HEIGHT = 800;
@@ -14,7 +14,7 @@ public class Panel extends JLayeredPane {
     private Font font = new Font("Arial", Font.BOLD, 18);
     FontMetrics metrics;
 
-    public Panel() {
+    public GameBoard() {
         ArrayList<String> intList = new ArrayList(Arrays.asList(nameList));
         Collections.shuffle(intList);
         Collections.shuffle(intList);
