@@ -1,3 +1,5 @@
+package Cards;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -11,7 +13,7 @@ public class ResourceCard {
         rc = rcName;
         try {
             rcFront = ImageIO.read(ResourceCard.class.getResource("Assets/Resource_Cards/"+rc+".png"));
-            rcBack = ImageIO.read(ResourceCard.class.getResource(""));
+            rcBack = ImageIO.read(ResourceCard.class.getResource("Assets/Resource_Cards/back.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
