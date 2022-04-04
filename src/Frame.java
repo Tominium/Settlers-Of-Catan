@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.IOException;
+import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 
 public class Frame extends JFrame {
 
@@ -20,6 +21,7 @@ public class Frame extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
+        FlatSolarizedLightIJTheme.setup();
         new Frame();
     }
 }
