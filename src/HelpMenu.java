@@ -1,5 +1,3 @@
-
-
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -52,7 +50,7 @@ public class HelpMenu extends JFrame {
         setLayout(null);
 
 
-       JLabel page = new JLabel(new ImageIcon(page1));
+        JLabel page = new JLabel(new ImageIcon(page1));
         page.setBounds(0, 0, 1000, 1000);
         add(page);
 
@@ -94,9 +92,13 @@ public class HelpMenu extends JFrame {
                 } else if (currentPage == page16) {
                     currentPage = page15;
                 }
-              //  pageNumber.setText("Page " + (pageNumber.getText().charAt(5) - 1) + " of 16");
+                page.setIcon(new ImageIcon(currentPage));
             }
-        });
+        }
+        );
+        add(previousPageBtn);
+
+
         nextPageBtn = new JButton("Next Page");
         nextPageBtn.setFont(new Font("Arial", Font.BOLD, 20));
         nextPageBtn.setBounds(670, 10, 150, 30);
@@ -104,7 +106,7 @@ public class HelpMenu extends JFrame {
         nextPageBtn.setForeground(Color.WHITE);
         nextPageBtn.setFont(new Font("Arial", Font.PLAIN, 10));
         nextPageBtn.addActionListener(new ActionListener() {
-                                          public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                                               if (currentPage == page1) {
                                                   currentPage = page2;
                                               } else if (currentPage == page2) {
@@ -136,11 +138,12 @@ public class HelpMenu extends JFrame {
                                               } else if (currentPage == page15) {
                                                   currentPage = page16;
                                               }
-                                          }
-                                      }
+                page.setIcon(new ImageIcon(currentPage));
+            }
+        }
         );
+        add(nextPageBtn);
 
-        add(previousPageBtn);
         setTitle("Help");
         setSize(1000, 1000);
         setLocationRelativeTo(null);
@@ -164,4 +167,3 @@ public class HelpMenu extends JFrame {
         helpMenu.setVisible(true);
     }
 }
-

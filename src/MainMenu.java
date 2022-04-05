@@ -26,10 +26,28 @@ public class MainMenu extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
     }
 
     public MainMenu() throws IOException {
         {
+        {
+            //make the background image
+            BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = image.createGraphics();
+            g2d.drawImage(page1, 0, 0, null);
+            g2d.dispose();
+            JLabel background = new JLabel(new ImageIcon(image));
+            background.setLayout(new FlowLayout());
+            background.setOpaque(true);
+            background.setBackground(Color.BLACK);
+            background.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+            background.setVisible(true);
+            page1 = image;
+        }
+
 
             // Initialize the help menu
             JFrame helpFrame = new JFrame("Help");
@@ -59,7 +77,20 @@ public class MainMenu extends JFrame {
             helpButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             helpButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2);
             helpButton.addActionListener(e -> {
-            });
+                // Initialize the help menu
+                helpFrame.setSize(WIDTH, HEIGHT);
+                helpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                helpFrame.setTitle("Help");
+                helpFrame.setResizable(false);
+                helpFrame.setLocationRelativeTo(null);
+                helpFrame.add(new JLabel(new ImageIcon(page1)));
+                helpFrame.setVisible(true);
+
+            }
+            );
+            panel.add(helpButton);
+            }
+
             panel.add(helpButton);
 
             // Initialize the exit button
@@ -72,7 +103,7 @@ public class MainMenu extends JFrame {
             panel.add(exitButton);
         }
 
-    }
+
 
     JLabel page = new JLabel(new ImageIcon(page1));
 
@@ -82,13 +113,7 @@ public class MainMenu extends JFrame {
     public static void main(String[] args) throws IOException {
         new MainMenu();
     }
+
+    public void change(String menu) {
+    }
 }
-
-
-
-
-
-
-
-
-
