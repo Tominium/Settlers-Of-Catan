@@ -67,13 +67,6 @@ public class MainMenu extends JFrame {
         show();
     }
 
-    public void show() {
-        frame.setVisible(true);
-    }
-
-    public void hide() {
-        frame.setVisible(false);
-    }
     public static void main(String[] args) throws IOException {
         new MainMenu();
         new Frame();
