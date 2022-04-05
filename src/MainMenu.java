@@ -1,6 +1,10 @@
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public class MainMenu extends JFrame {
@@ -9,18 +13,26 @@ public class MainMenu extends JFrame {
     private static final int BUTTON_WIDTH = 200;
     private static final int BUTTON_HEIGHT = 50;
     private static final int BUTTON_SPACING = 50;
-    private HelpMenu helpMenu;
     private JFrame frame;
     private JPanel panel;
     private JButton startButton;
     private JButton helpButton;
     private JButton exitButton;
+    private BufferedImage page1;
 
+    {
+        try {
+            page1 = ImageIO.read(new File("src/Images/0001.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public MainMenu() throws IOException {
         {
+
             // Initialize the help menu
-            helpMenu = new HelpMenu();
+            JFrame helpFrame = new JFrame("Help");
 
             // Initialize the frame
             frame = new JFrame();
@@ -47,8 +59,6 @@ public class MainMenu extends JFrame {
             helpButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             helpButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2);
             helpButton.addActionListener(e -> {
-                // Show the help menu
-                helpMenu.show();
             });
             panel.add(helpButton);
 
@@ -57,19 +67,20 @@ public class MainMenu extends JFrame {
             exitButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             exitButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2 + BUTTON_SPACING);
             exitButton.addActionListener(e -> {
-                // Exit the program
                 System.exit(0);
             });
             panel.add(exitButton);
         }
 
-        // Show the main menu
-        show();
     }
+
+    JLabel page = new JLabel(new ImageIcon(page1));
+
+
+
 
     public static void main(String[] args) throws IOException {
         new MainMenu();
-        new Frame();
     }
 }
 
