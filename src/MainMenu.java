@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainMenu extends JFrame {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 1000;
+    private static final int WIDTH = 1800;
+    private static final int HEIGHT = 900;
     private static final int BUTTON_WIDTH = 200;
     private static final int BUTTON_HEIGHT = 50;
     private static final int BUTTON_SPACING = 50;

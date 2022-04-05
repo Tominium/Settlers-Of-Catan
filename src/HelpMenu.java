@@ -15,6 +15,7 @@ public class HelpMenu extends JFrame {
     private Object p = null;
     private JButton previousPageBtn;
     private JButton nextPageBtn;
+    private JButton backBtn;
 
     private BufferedImage page1, page2, page3, page4, page5, page6, page7, page8, page9, page10, page11, page12, page13, page14, page15, page16, currentPage;
 
@@ -43,7 +44,7 @@ public class HelpMenu extends JFrame {
 
     public HelpMenu() {
         super("Help Menu");
-        setSize(800, 600);
+        setSize(1800, 900);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -53,6 +54,26 @@ public class HelpMenu extends JFrame {
         JLabel page = new JLabel(new ImageIcon(page1));
         page.setBounds(0, 0, 1000, 1000);
         add(page);
+
+
+//create button to go to back to the main menu
+        backBtn = new JButton("Back");
+        backBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        backBtn.setBounds(10, 90, 150, 30);
+        backBtn.setForeground(Color.black);
+        backBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                try {
+                    new MainMenu();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+                                  });
+        add(backBtn);
+
 
         previousPageBtn = new JButton("Previous Page");
         previousPageBtn.setFont(new Font("Arial", Font.BOLD, 10));
@@ -92,7 +113,7 @@ public class HelpMenu extends JFrame {
                 } else if (currentPage == page16) {
                     currentPage = page15;
                 }
-                page.setIcon(new ImageIcon(currentPage));
+               // page.setIcon(new ImageIcon(currentPage));
             }
         }
         );
@@ -100,10 +121,8 @@ public class HelpMenu extends JFrame {
 
 
         nextPageBtn = new JButton("Next Page");
-        nextPageBtn.setFont(new Font("Arial", Font.BOLD, 20));
-        nextPageBtn.setBounds(670, 10, 150, 30);
-        nextPageBtn.setBackground(Color.BLACK);
-        nextPageBtn.setForeground(Color.WHITE);
+        nextPageBtn.setBounds(10, 50, 150, 30);
+        nextPageBtn.setForeground(Color.black);
         nextPageBtn.setFont(new Font("Arial", Font.PLAIN, 10));
         nextPageBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -138,8 +157,7 @@ public class HelpMenu extends JFrame {
                                               } else if (currentPage == page15) {
                                                   currentPage = page16;
                                               }
-                                                          page.setIcon(new ImageIcon(currentPage));
-
+                                            //  page.setIcon(new ImageIcon(currentPage));
 
             }
         }
@@ -147,7 +165,7 @@ public class HelpMenu extends JFrame {
         add(nextPageBtn);
 
         setTitle("Help");
-        setSize(1000, 1000);
+        setSize(1800, 900);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -157,6 +175,7 @@ public class HelpMenu extends JFrame {
         //add(pageNumber);
         add(nextPageBtn);
         add(previousPageBtn);
+        add(backBtn);
         setVisible(true);
     }
 
