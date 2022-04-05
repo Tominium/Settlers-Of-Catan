@@ -1,4 +1,7 @@
+import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
+
 import javax.swing.*;
+import java.io.IOException;
 
 public class MainMenu extends JFrame {
     private static final int WIDTH = 1000;
@@ -14,7 +17,7 @@ public class MainMenu extends JFrame {
     private JButton exitButton;
 
 
-    public MainMenu() {
+    public MainMenu() throws IOException {
         {
             // Initialize the help menu
             helpMenu = new HelpMenu();
@@ -70,6 +73,10 @@ public class MainMenu extends JFrame {
 
     public void hide() {
         frame.setVisible(false);
+    }
+    public static void main(String[] args) throws IOException {
+        new MainMenu();
+        new Frame();
     }
 }
 
