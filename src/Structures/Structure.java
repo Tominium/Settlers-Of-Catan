@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Structure {
     private String type;
@@ -50,5 +51,18 @@ public class Structure {
 
     public void setPos(Point pos) {
         this.pos = pos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Structure structure = (Structure) o;
+        return Objects.equals(type, structure.type) && Objects.equals(color, structure.color) && Objects.equals(pos, structure.pos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, color, pos);
     }
 }
