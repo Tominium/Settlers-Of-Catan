@@ -13,12 +13,8 @@ public class DevelopmentCard {
     public DevelopmentCard(String dcName){
         dc = dcName;
         try {
-            dcFront = ImageIO.read(DevelopmentCard.class.getResource(""));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            dcBack = ImageIO.read(DevelopmentCard.class.getResource(""));
+            dcFront = ImageIO.read(DevelopmentCard.class.getResource("Assets/DevCards/"+dc+".png"));
+            dcBack = ImageIO.read(DevelopmentCard.class.getResource("Assets/DevCards/back.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -27,12 +23,8 @@ public class DevelopmentCard {
         dc = dcName;
         points = p;
         try {
-            dcFront = ImageIO.read(DevelopmentCard.class.getResource(""));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            dcBack = ImageIO.read(DevelopmentCard.class.getResource(""));
+            dcFront = ImageIO.read(DevelopmentCard.class.getResource("Assets/DevCards/"+dc+".png"));
+            dcBack = ImageIO.read(DevelopmentCard.class.getResource("Assets/DevCards/back.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,4 +32,9 @@ public class DevelopmentCard {
     public String getType(){
         return dc;
     }
+    public int getPoints(){ return points; }
+
+    public BufferedImage getFront(){ return dcFront; }
+    public BufferedImage getBack(){ return dcBack; }
+
 }
