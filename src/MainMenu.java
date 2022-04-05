@@ -68,7 +68,12 @@ public class MainMenu extends JFrame {
             startButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             startButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2 - BUTTON_SPACING);
             startButton.addActionListener(e -> {
-                // Initialize the game
+                // Initialize the Frame class
+                try {
+                    Frame g = new Frame();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             });
             panel.add(startButton);
 
