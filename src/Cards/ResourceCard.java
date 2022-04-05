@@ -3,6 +3,7 @@ package Cards;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ResourceCard {
     private String rc;
@@ -28,5 +29,18 @@ public class ResourceCard {
 
     public String getType(){
         return rc;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ResourceCard that = (ResourceCard) o;
+        return that.getType().equals(getType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rc, rcFront, rcBack);
     }
 }
