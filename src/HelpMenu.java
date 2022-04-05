@@ -52,13 +52,14 @@ public class HelpMenu extends JFrame {
 
 
         JLabel page = new JLabel(new ImageIcon(page1));
-        page.setBounds(0, 0, 1000, 1000);
+page.setBounds( 0, 0, 1800, 900);
+
         add(page);
 
 
 //create button to go to back to the main menu
         backBtn = new JButton("Back");
-        backBtn.setFont(new Font("Arial", Font.BOLD, 20));
+        backBtn.setFont(new Font("Arial", Font.PLAIN, 10));
         backBtn.setBounds(10, 90, 150, 30);
         backBtn.setForeground(Color.black);
         backBtn.addActionListener(new ActionListener() {
@@ -76,7 +77,7 @@ public class HelpMenu extends JFrame {
 
 
         previousPageBtn = new JButton("Previous Page");
-        previousPageBtn.setFont(new Font("Arial", Font.BOLD, 10));
+        previousPageBtn.setFont(new Font("Arial", Font.PLAIN, 10));
         previousPageBtn.setBounds(10, 10, 150, 30);
         previousPageBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

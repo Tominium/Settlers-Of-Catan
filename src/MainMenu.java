@@ -27,9 +27,16 @@ public class MainMenu extends JFrame {
             e.printStackTrace();
         }
 
-
-
+//change background image
+        setContentPane(new JPanel() {
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(page1, 0, 0, null);
+            }
+        });
     }
+
+
 
     public MainMenu() throws IOException {
         {
@@ -112,7 +119,8 @@ public class MainMenu extends JFrame {
 
 
     public static void main(String[] args) throws IOException {
-        new MainMenu();
+        FlatSolarizedLightIJTheme.setup();
+        MainMenu mainMenu = new MainMenu();
     }
 
     public void change(String menu) {
