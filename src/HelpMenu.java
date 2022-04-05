@@ -138,7 +138,9 @@ public class HelpMenu extends JFrame {
                                               } else if (currentPage == page15) {
                                                   currentPage = page16;
                                               }
-                page.setIcon(new ImageIcon(currentPage));
+                                                          page.setIcon(new ImageIcon(currentPage));
+
+
             }
         }
         );

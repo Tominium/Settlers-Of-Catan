@@ -77,14 +77,10 @@ public class MainMenu extends JFrame {
             helpButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             helpButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2);
             helpButton.addActionListener(e -> {
-                // Initialize the help menu
-                helpFrame.setSize(WIDTH, HEIGHT);
-                helpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                helpFrame.setTitle("Help");
-                helpFrame.setResizable(false);
-                helpFrame.setLocationRelativeTo(null);
-                helpFrame.add(new JLabel(new ImageIcon(page1)));
-                helpFrame.setVisible(true);
+                // Initialize the HelpMenu class
+                HelpMenu helpMenu = new HelpMenu();
+
+
 
             }
             );
