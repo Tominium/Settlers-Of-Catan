@@ -21,7 +21,7 @@ public class HelpMenu extends JFrame {
 
     {
         try {
-            page1 = ImageIO.read(new File("src/Images/0001.jpg"));
+            page1 = ImageIO.read(new File("src/Images/Instructions.png"));
             page2 = ImageIO.read(new File("src/Images/0002.jpg"));
             page3 = ImageIO.read(new File("src/Images/0003.jpg"));
             page4 = ImageIO.read(new File("src/Images/0004.jpg"));
@@ -52,7 +52,7 @@ public class HelpMenu extends JFrame {
 
 
         JLabel page = new JLabel(new ImageIcon(page1));
-page.setBounds( 0, 0, 1800, 900);
+page.setBounds( 170, 0, 1382, 900);
 
         add(page);
 
@@ -118,7 +118,7 @@ page.setBounds( 0, 0, 1800, 900);
             }
         }
         );
-        add(previousPageBtn);
+       // add(previousPageBtn);
 
 
         nextPageBtn = new JButton("Next Page");
@@ -164,7 +164,7 @@ page.setBounds( 0, 0, 1800, 900);
             }
         }
         );
-        add(nextPageBtn);
+        //add(nextPageBtn);
 
         setTitle("Help");
         setSize(1800, 900);
@@ -175,9 +175,9 @@ page.setBounds( 0, 0, 1800, 900);
         setBackground(Color.BLACK);
         add(page);
         //add(pageNumber);
-        add(nextPageBtn);
-        add(previousPageBtn);
-        add(backBtn);
+        //add(nextPageBtn);
+        //add(previousPageBtn);
+         add(backBtn);
         setVisible(true);
     }
 
