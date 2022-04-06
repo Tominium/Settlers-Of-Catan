@@ -114,7 +114,7 @@ page.setBounds( 0, 0, 1800, 900);
                 } else if (currentPage == page16) {
                     currentPage = page15;
                 }
-               // page.setIcon(new ImageIcon(currentPage));
+               page.setIcon(new ImageIcon(currentPage));
             }
         }
         );
@@ -158,7 +158,8 @@ page.setBounds( 0, 0, 1800, 900);
                                               } else if (currentPage == page15) {
                                                   currentPage = page16;
                                               }
-                                            //  page.setIcon(new ImageIcon(currentPage));
+                                            page.setIcon(new ImageIcon(currentPage));
+
 
             }
         }
@@ -185,6 +186,7 @@ page.setBounds( 0, 0, 1800, 900);
 
 
     public static void main(String[] args) {
+        FlatSolarizedLightIJTheme.setup();
         HelpMenu helpMenu = new HelpMenu();
         helpMenu.setVisible(true);
     }
