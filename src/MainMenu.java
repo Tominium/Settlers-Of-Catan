@@ -22,7 +22,7 @@ public class MainMenu extends JFrame {
 
     {
         try {
-            page1 = ImageIO.read(new File("src/Images/CoolPic.jpg"));
+            page1 = ImageIO.read(new File("src/Assets.Images/CoolPic.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
