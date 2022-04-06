@@ -22,7 +22,7 @@ public class MainMenu extends JFrame {
 
     {
         try {
-            page1 = ImageIO.read(new File("src/Assets.Images/CoolPic.jpg"));
+            page1 = ImageIO.read(new File("src/Assets/Images/CoolPic.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,19 +105,4 @@ public class MainMenu extends JFrame {
             });
             panel.add(exitButton);
         }
-
-
-
-    JLabel page = new JLabel(new ImageIcon(page1));
-
-
-
-
-    public static void main(String[] args) throws IOException {
-        FlatSolarizedLightIJTheme.setup();
-        MainMenu mainMenu = new MainMenu();
-    }
-
-    public void change(String menu) {
-    }
 }
