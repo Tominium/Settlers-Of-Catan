@@ -22,6 +22,8 @@ public class GameBoard extends JLayeredPane {
         intList.toArray(nameList);
         tilesBook = new ArrayList<>();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+
     }
 
     @Override
@@ -59,6 +61,9 @@ public class GameBoard extends JLayeredPane {
 
                     //drawHex(g, xLbl, yLbl, x, y, radius);
                 }
+            }
+            for(int il = 0; il < tilesBook.size(); il++){
+                System.out.println(tilesBook.get(il).getCenter());
             }
         }
     }
