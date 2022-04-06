@@ -59,10 +59,9 @@ page.setBounds( 170, 0, 800, 600);
 
 
 //create button to go to back to the main menu
-        backBtn = new JButton("Back");
-        backBtn.setFont(new Font("Arial", Font.PLAIN, 10));
-        backBtn.setBounds(10, 90, 150, 30);
-        backBtn.setForeground(Color.black);
+        backBtn = new JButton("Back To Main Menu");
+        backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        backBtn.setBounds(10, 170, 300, 60);
         backBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -78,8 +77,8 @@ page.setBounds( 170, 0, 800, 600);
 
 
         previousPageBtn = new JButton("Previous Page");
-        previousPageBtn.setFont(new Font("Arial", Font.PLAIN, 10));
-        previousPageBtn.setBounds(10, 10, 150, 30);
+        previousPageBtn.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        previousPageBtn.setBounds(10, 10, 300, 60);
         previousPageBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (currentPage == page1) {
@@ -123,9 +122,8 @@ page.setBounds( 170, 0, 800, 600);
 
 
         nextPageBtn = new JButton("Next Page");
-        nextPageBtn.setBounds(10, 50, 150, 30);
-        nextPageBtn.setForeground(Color.black);
-        nextPageBtn.setFont(new Font("Arial", Font.PLAIN, 10));
+        nextPageBtn.setBounds(10, 90, 300, 60);
+        nextPageBtn.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         nextPageBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                                               if (currentPage == page1) {
@@ -168,17 +166,16 @@ page.setBounds( 170, 0, 800, 600);
         add(nextPageBtn);
 
         setTitle("Help");
-        setSize(800, 600);
+        setSize(800, 650);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
         setBackground(Color.BLACK);
         add(page);
-        //add(pageNumber);
-        //add(nextPageBtn);
-        //add(previousPageBtn);
-         add(backBtn);
+        add(nextPageBtn);
+        add(previousPageBtn);
+        add(backBtn);
         setVisible(true);
     }
 
