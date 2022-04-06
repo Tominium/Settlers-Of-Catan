@@ -22,6 +22,8 @@ public class GameBoard extends JLayeredPane {
         intList.toArray(nameList);
         tilesBook = new ArrayList<>();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+
     }
 
     @Override
@@ -34,7 +36,7 @@ public class GameBoard extends JLayeredPane {
         metrics = g.getFontMetrics();
 
         drawCircle(g2d, origin, 400, true, true, 0x4488FF, 0);
-        drawHexGridLoop(origin, 5, 75, 1);
+        drawHexGridLoop(origin, 5, 75, 3);
         drawHex(g);
     }
 
@@ -59,6 +61,9 @@ public class GameBoard extends JLayeredPane {
 
                     //drawHex(g, xLbl, yLbl, x, y, radius);
                 }
+            }
+            for(int il = 0; il < tilesBook.size(); il++){
+                System.out.println(tilesBook.get(il).getCenter());
             }
         }
     }
