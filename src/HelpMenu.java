@@ -12,7 +12,6 @@ import java.io.File;
 
 public class HelpMenu extends JFrame {
 
-    private Object p = null;
     private JButton previousPageBtn;
     private JButton nextPageBtn;
     private JButton backBtn;
@@ -21,7 +20,7 @@ public class HelpMenu extends JFrame {
 
     {
         try {
-            page1 = ImageIO.read(new File("src/Images/Instructions.png"));
+            page1 = ImageIO.read(new File("src/Images/0001.jpg"));
             page2 = ImageIO.read(new File("src/Images/0002.jpg"));
             page3 = ImageIO.read(new File("src/Images/0003.jpg"));
             page4 = ImageIO.read(new File("src/Images/0004.jpg"));
@@ -40,11 +39,13 @@ public class HelpMenu extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        currentPage = page1;
+
     }
 
     public HelpMenu() {
         super("Help Menu");
-        setSize(1800, 900);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -52,7 +53,7 @@ public class HelpMenu extends JFrame {
 
 
         JLabel page = new JLabel(new ImageIcon(page1));
-page.setBounds( 170, 0, 1382, 900);
+page.setBounds( 170, 0, 800, 600);
 
         add(page);
 
@@ -118,7 +119,7 @@ page.setBounds( 170, 0, 1382, 900);
             }
         }
         );
-       // add(previousPageBtn);
+       add(previousPageBtn);
 
 
         nextPageBtn = new JButton("Next Page");
@@ -164,10 +165,10 @@ page.setBounds( 170, 0, 1382, 900);
             }
         }
         );
-        //add(nextPageBtn);
+        add(nextPageBtn);
 
         setTitle("Help");
-        setSize(1800, 900);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
