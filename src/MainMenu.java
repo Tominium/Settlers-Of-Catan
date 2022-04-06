@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainMenu extends JFrame {
-    private static final int WIDTH = 1800;
-    private static final int HEIGHT = 900;
+    private static final int WIDTH = 1400;
+    private static final int HEIGHT = 700;
     private static final int BUTTON_WIDTH = 200;
     private static final int BUTTON_HEIGHT = 50;
     private static final int BUTTON_SPACING = 50;
@@ -69,15 +69,19 @@ public class MainMenu extends JFrame {
             // Initialize the start button
             startButton = new JButton("Start");
             startButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-            startButton.setLocation(WIDTH  - BUTTON_WIDTH , HEIGHT  - BUTTON_HEIGHT  - BUTTON_SPACING);
+            startButton.setLocation(WIDTH - BUTTON_WIDTH, HEIGHT - BUTTON_HEIGHT - BUTTON_SPACING);
             startButton.addActionListener(e -> {
                 // Initialize the Frame class
-                try {
-                    Frame g = new Frame();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            });
+                frame.setVisible(false);
+                frame.dispose();
+                        try {
+                            new Frame();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+            );
+
             panel.add(startButton);
 
             // Initialize the help button
@@ -94,15 +98,23 @@ public class MainMenu extends JFrame {
             panel.add(helpButton);
         }
 
-            panel.add(helpButton);
+        panel.add(helpButton);
 
-            // Initialize the exit button
-            exitButton = new JButton("Exit");
-            exitButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-            exitButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2 + BUTTON_SPACING);
-            exitButton.addActionListener(e -> {
-                System.exit(0);
-            });
-            panel.add(exitButton);
+        // Initialize the exit button
+        exitButton = new JButton("Exit");
+        exitButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+        exitButton.setLocation(WIDTH / 2 - BUTTON_WIDTH / 2, HEIGHT / 2 - BUTTON_HEIGHT / 2 + BUTTON_SPACING);
+        exitButton.addActionListener(e -> {
+            System.exit(0);
+        });
+        panel.add(exitButton);
+    }
+        public static void main(String[] args) throws IOException {
+            FlatSolarizedLightIJTheme.setup();
+            MainMenu mainMenu = new MainMenu();
         }
-}
+
+
+        }
+
+

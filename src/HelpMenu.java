@@ -178,11 +178,6 @@ page.setBounds( 170, 0, 800, 600);
         add(backBtn);
         setVisible(true);
     }
-
-
-
-
-
     public static void main(String[] args) {
         FlatSolarizedLightIJTheme.setup();
         HelpMenu helpMenu = new HelpMenu();
