@@ -12,7 +12,6 @@ public class Hexagon extends Polygon {
     private Point center;
     private int radius;
     private int rotation = 90;
-    private String[] arr = {"desert", "field", "forest", "hill", "mountain", "pasture"};
 
     public Hexagon(Point center, int radius) {
         npoints = SIDES;
