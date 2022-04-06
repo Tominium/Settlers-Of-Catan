@@ -13,9 +13,9 @@ public class DevelopmentDeck {
         deck = new ArrayDeque<DevelopmentCard>();
 
         fill("knight", 14);
-        fill("road building", 14);
-        fill("year of plenty", 14);
-        fill("monopoly", 14);
+        fill("road building", 2);
+        fill("year of plenty", 2);
+        fill("monopoly", 2);
         deck.offer(new DevelopmentCard("Library", 1));
         deck.offer(new DevelopmentCard("Market", 1));
         deck.offer(new DevelopmentCard("Chapel", 1));
