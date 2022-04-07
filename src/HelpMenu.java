@@ -47,13 +47,13 @@ public class HelpMenu extends JFrame {
         super("Help Menu");
         setSize(800, 600);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setResizable(false);
         setLayout(null);
 
 
         JLabel page = new JLabel(new ImageIcon(page1));
-page.setBounds( 170, 0, 800, 600);
+        page.setBounds( 170, 0, 800, 600);
 
         add(page);
 
@@ -65,11 +65,6 @@ page.setBounds( 170, 0, 800, 600);
         backBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                try {
-                    new MainMenu();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
 
             }
                                   });
@@ -169,7 +164,7 @@ page.setBounds( 170, 0, 800, 600);
         setSize(800, 650);
         setLocationRelativeTo(null);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(null);
         setBackground(Color.BLACK);
         add(page);

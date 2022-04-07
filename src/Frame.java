@@ -14,7 +14,7 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new MainMenu());
+        add(new GameBoard());
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -37,6 +37,6 @@ public class Frame extends JFrame {
 
     public static void main (String[]args) throws IOException {
         FlatSolarizedLightIJTheme.setup();
-        new Frame();
+        new MainMenu();
     }
 }
