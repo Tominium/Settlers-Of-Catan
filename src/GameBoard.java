@@ -1,3 +1,4 @@
+import Misc.Token;
 import TilePiece.Tile;
 
 import java.awt.*;
@@ -12,6 +13,7 @@ public class GameBoard extends JLayeredPane {
     private final int HEIGHT = 800;
     private final String[] nameList = {"forest", "forest", "forest", "forest", "brick", "brick", "brick", "desert", "field", "field", "field", "field", "pasture", "pasture", "pasture", "pasture", "ore", "ore", "ore"};
     private ArrayList<Tile> tilesBook;
+    private ArrayList<Token> tokens;
 
     private Font font = new Font("Arial", Font.BOLD, 18);
     FontMetrics metrics;
@@ -22,10 +24,9 @@ public class GameBoard extends JLayeredPane {
         Collections.shuffle(intList);
         Collections.shuffle(intList);
         intList.toArray(nameList);
-        tilesBook = new ArrayList<>();
+        tokens = new ArrayList<Token>();
+        tilesBook = new ArrayList<Tile>();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-
-
     }
 
     @Override
@@ -50,6 +51,7 @@ public class GameBoard extends JLayeredPane {
         int i =0;
 
         if(tilesBook.size()!=19){
+
             for (int row = 0; row < size; row++) {
                 int cols = size - java.lang.Math.abs(row - half);
 
@@ -62,6 +64,15 @@ public class GameBoard extends JLayeredPane {
                     i++;
 
                     //drawHex(g, xLbl, yLbl, x, y, radius);
+                }
+            }
+            tokens.add(new Token(2));tokens.add(new Token(12));tokens.add(new Token(3));tokens.add(new Token(3));tokens.add(new Token(4));tokens.add(new Token(4));tokens.add(new Token(5));tokens.add(new Token(5));tokens.add(new Token(6));tokens.add(new Token(6));tokens.add(new Token(8));tokens.add(new Token(8));tokens.add(new Token(9));tokens.add(new Token(9));tokens.add(new Token(10));tokens.add(new Token(10));tokens.add(new Token(11));tokens.add(new Token(11));
+            Collections.shuffle(tokens);
+            int ai=0;
+            for(Tile t: tilesBook){
+                if(!t.getType().equals("desert")){
+                    t.setToken(tokens.get(ai));
+                    ai++;
                 }
             }
             for(int il = 0; il < tilesBook.size(); il++){
@@ -79,6 +90,7 @@ public class GameBoard extends JLayeredPane {
         for(Tile hex: tilesBook){
             hex.draw(g2d);
         }
+        drawTokens(g2d);
 
             //outline
             //hex.draw(g2d, x, y, 4, 0xFFDD88, false);
@@ -116,14 +128,20 @@ public class GameBoard extends JLayeredPane {
         g.setStroke(tmpS);
     }
 
-//    public static void Panel(String[] args) {
-//        JFrame f = new JFrame();
-//        Panel p = new Panel();
-//
-//        f.setContentPane(p);
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        f.pack();
-//        f.setLocationRelativeTo(null);
-//        f.setVisible(true);
-//    }
+    public void drawTokens(Graphics2D g){
+//        if(tokens.isEmpty()){
+//            tokens.add(new Token(2));tokens.add(new Token(12));tokens.add(new Token(3));tokens.add(new Token(3));tokens.add(new Token(4));tokens.add(new Token(4));tokens.add(new Token(5));tokens.add(new Token(5));tokens.add(new Token(6));tokens.add(new Token(6));tokens.add(new Token(8));tokens.add(new Token(8));tokens.add(new Token(9));tokens.add(new Token(9));tokens.add(new Token(10));tokens.add(new Token(10));tokens.add(new Token(11));tokens.add(new Token(11));
+//            Collections.shuffle(tokens);
+//            int i=0;
+//            for(Tile t: tilesBook){
+//                if(!t.getType().equals("desert")){
+//                    t.setToken(tokens.get(i));
+//                    i++;
+//                }
+//            }
+//        }
+        for(Tile t: tilesBook){
+            g.drawImage(t.getToken().getImage(), (int)t.getCenter().getX()-21, (int)t.getCenter().getY()-10, null);
+        }
+    }
 }
