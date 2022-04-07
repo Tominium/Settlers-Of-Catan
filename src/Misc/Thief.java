@@ -1,3 +1,7 @@
+package Misc;
+
+import TilePiece.Tile;
+
 public class Thief {
     private Tile pos;
 

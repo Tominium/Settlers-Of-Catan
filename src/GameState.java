@@ -1,3 +1,7 @@
+import Misc.Dice;
+import Misc.Thief;
+import TilePiece.Tile;
+
 import java.util.ArrayList;
 
 public class GameState {
