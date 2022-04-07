@@ -1,3 +1,5 @@
+package Misc;
+
 public class Dice {
 
     private int number, number0;

@@ -14,25 +14,11 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new MainMenu());
+        add(new GameBoard());
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
-/*
-        //instantiate the buttons
-        BackButton = new JButton("Back");
-        BackButton.setBounds(0, 0, 100, 50);
-        BackButton.setVisible(true);
-        add(BackButton);//add the button to the frame
-        BackButton.addActionListener(e -> {
-                    try {
-                        new MainMenu();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-        );
-*/
+
     }
 
     public static void main (String[]args) throws IOException {

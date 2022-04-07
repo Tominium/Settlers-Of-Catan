@@ -1,3 +1,5 @@
+package Misc;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -10,7 +12,7 @@ public class Token {
     public Token(int num) {
         number = num;
         try {
-            image = ImageIO.read(Token.class.getResource("Token/prob_"+num+".png"));
+            image = ImageIO.read(Token.class.getResource("Misc.Token/prob_"+num+".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
