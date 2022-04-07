@@ -68,9 +68,11 @@ public class GameBoard extends JLayeredPane {
             }
             tokens.add(new Token(2));tokens.add(new Token(12));tokens.add(new Token(3));tokens.add(new Token(3));tokens.add(new Token(4));tokens.add(new Token(4));tokens.add(new Token(5));tokens.add(new Token(5));tokens.add(new Token(6));tokens.add(new Token(6));tokens.add(new Token(8));tokens.add(new Token(8));tokens.add(new Token(9));tokens.add(new Token(9));tokens.add(new Token(10));tokens.add(new Token(10));tokens.add(new Token(11));tokens.add(new Token(11));
             Collections.shuffle(tokens);
+            Collections.shuffle(tokens);Collections.shuffle(tokens);
+
             int ai=0;
             for(Tile t: tilesBook){
-                if(!t.getType().equals("desert")){
+                if(!t.getType().contains("desert")){
                     t.setToken(tokens.get(ai));
                     ai++;
                 }
@@ -140,8 +142,11 @@ public class GameBoard extends JLayeredPane {
 //                }
 //            }
 //        }
+
         for(Tile t: tilesBook){
-            g.drawImage(t.getToken().getImage(), (int)t.getCenter().getX()-21, (int)t.getCenter().getY()-10, null);
+            if(!t.getType().equals("desert")){
+                g.drawImage(t.getToken().getImage(), (int) t.getCenter().getX() - 21, (int) t.getCenter().getY() - 10, null);
+            }
         }
     }
 }
