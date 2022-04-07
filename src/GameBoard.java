@@ -66,13 +66,22 @@ public class GameBoard extends JLayeredPane {
                     //drawHex(g, xLbl, yLbl, x, y, radius);
                 }
             }
-            tokens.add(new Token(2));tokens.add(new Token(12));tokens.add(new Token(3));tokens.add(new Token(3));tokens.add(new Token(4));tokens.add(new Token(4));tokens.add(new Token(5));tokens.add(new Token(5));tokens.add(new Token(6));tokens.add(new Token(6));tokens.add(new Token(8));tokens.add(new Token(8));tokens.add(new Token(9));tokens.add(new Token(9));tokens.add(new Token(10));tokens.add(new Token(10));tokens.add(new Token(11));tokens.add(new Token(11));
-            Collections.shuffle(tokens);
-            Collections.shuffle(tokens);Collections.shuffle(tokens);
+            int[] temp = {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
+//            tokens.add(new Token(2)); tokens.add(new Token(12));
+//            for(int a=0; a<8; a++){
+//                if(ai==7){ai=8;}
+//                    tokens.add(new Token(ai));
+//                    tokens.add(new Token(ai));
+//                ai++;
+//            }
+//            Collections.shuffle(tokens);
+            for(int tem: temp){
+                tokens.add(new Token(tem));
+            }
 
             int ai=0;
-            for(Tile t: tilesBook){
-                if(!t.getType().contains("desert")){
+            for(Tile t: spiral()){
+                if(t!=null&&!t.getType().contains("desert")){
                     t.setToken(tokens.get(ai));
                     ai++;
                 }
@@ -131,22 +140,107 @@ public class GameBoard extends JLayeredPane {
     }
 
     public void drawTokens(Graphics2D g){
-//        if(tokens.isEmpty()){
-//            tokens.add(new Token(2));tokens.add(new Token(12));tokens.add(new Token(3));tokens.add(new Token(3));tokens.add(new Token(4));tokens.add(new Token(4));tokens.add(new Token(5));tokens.add(new Token(5));tokens.add(new Token(6));tokens.add(new Token(6));tokens.add(new Token(8));tokens.add(new Token(8));tokens.add(new Token(9));tokens.add(new Token(9));tokens.add(new Token(10));tokens.add(new Token(10));tokens.add(new Token(11));tokens.add(new Token(11));
-//            Collections.shuffle(tokens);
-//            int i=0;
-//            for(Tile t: tilesBook){
-//                if(!t.getType().equals("desert")){
-//                    t.setToken(tokens.get(i));
-//                    i++;
-//                }
-//            }
-//        }
-
         for(Tile t: tilesBook){
             if(!t.getType().equals("desert")){
                 g.drawImage(t.getToken().getImage(), (int) t.getCenter().getX() - 21, (int) t.getCenter().getY() - 10, null);
             }
         }
     }
+
+    private ArrayList<Tile> spiral() {
+        Tile[][] tiles = new Tile[7][7];
+        // Place all the tiles in the board
+        int count = 0;
+
+        for (int row = 1; row < 6; row++) {
+            switch (row) {
+                case 1:
+                    for (int col = 1; col < 4; col++) {
+                        tiles[col][row] = tilesBook.get(count);
+                        count++;
+                    }
+                    break;
+                case 2:
+                    for (int col = 1; col < 5; col++) {
+                        tiles[col][row] = tilesBook.get(count);
+                        count++;
+                    }
+                    break;
+                case 3:
+                    for (int col = 1; col < 6; col++) {
+                        tiles[col][row] = tilesBook.get(count);
+                        count++;
+                    }
+                    break;
+                case 4:
+                    for (int col = 2; col < 6; col++) {
+                        tiles[col][row] = tilesBook.get(count);
+                        count++;
+                    }
+                    break;
+                case 5:
+                    for (int col = 3; col < 6; col++) {
+                        tiles[col][row] = tilesBook.get(count);
+                        count++;
+                    }
+                    break;
+            }
+        }
+        return spiralMatrix(tiles);
+    }
+    private ArrayList<Tile> spiralMatrix(Tile[][] mat) {
+
+        ArrayList<Tile> temp = new ArrayList<>();
+
+        int top = 0, bottom = mat.length - 1;
+        int left = 0, right = mat[0].length - 1;
+
+        while (true)
+        {
+            if (left > right) {
+                break;
+            }
+
+            // print top row
+            for (int i = left; i <= right; i++) {
+                    temp.add(mat[top][i]);
+            }
+            top++;
+
+            if (top > bottom) {
+                break;
+            }
+
+            // print right column
+            for (int i = top; i <= bottom; i++) {
+                    temp.add(mat[i][right]);
+            }
+            right--;
+
+            if (left > right) {
+                break;
+            }
+
+            // print bottom row
+            for (int i = right; i >= left; i--) {
+                    temp.add(mat[bottom][i]);
+            }
+            bottom--;
+
+            if (top > bottom) {
+                break;
+            }
+
+            // print left column
+            for (int i = bottom; i >= top; i--) {
+                    temp.add(mat[i][left]);
+            }
+            left++;
+        }
+        for(Tile t: temp){
+            if(t!=null){System.out.println(t.getType());}
+        }
+        return temp;
+    }
+
 }
