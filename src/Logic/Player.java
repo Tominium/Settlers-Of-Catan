@@ -1,3 +1,5 @@
+package Logic;
+
 import Cards.DevelopmentCard;
 import Cards.ResourceCard;
 import Structures.City;
