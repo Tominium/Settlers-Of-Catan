@@ -5,6 +5,7 @@ import TilePiece.Tile;
 import java.util.ArrayList;
 
 public class GameState {
+
     private ArrayList<Player> players;
     private ArrayList<Tile> tiles;
     private int turnNumber;
