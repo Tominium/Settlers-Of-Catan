@@ -1,4 +1,4 @@
-package Panels;
+package Panels.Components;
 
 public class GamePlayerInfoComp {
 }

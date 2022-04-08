@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.io.IOException;
+
+import Panels.GameBoard;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 
 public class Frame extends JFrame {

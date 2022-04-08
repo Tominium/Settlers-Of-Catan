@@ -1,3 +1,5 @@
+package Panels;
+
 import Misc.Token;
 import TilePiece.Tile;
 
