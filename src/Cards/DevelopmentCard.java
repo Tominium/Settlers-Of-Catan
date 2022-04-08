@@ -29,6 +29,12 @@ public class DevelopmentCard {
             e.printStackTrace();
         }
     }
+
+    public DevelopmentCard() {
+
+    }
+
+
     public String getType(){
         return dc;
     }

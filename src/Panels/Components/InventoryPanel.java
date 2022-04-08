@@ -1,6 +1,7 @@
 package Panels.Components;
 
 import Cards.DevelopmentCard;
+import Logic.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,5 @@ public class InventoryPanel {
         this.devCard = new DevelopmentCard();
     }
 
-    public use
 
 }
