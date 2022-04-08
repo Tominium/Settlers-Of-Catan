@@ -1,5 +1,6 @@
 package Panels.Components;
 
+import Logic.Player;
 import javax.swing.*;
 import java.awt.*;
 
