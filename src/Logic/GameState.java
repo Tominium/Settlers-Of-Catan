@@ -4,6 +4,8 @@ import Misc.Dice;
 import Misc.Thief;
 import Panels.GameBoard;
 import TilePiece.Tile;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -40,4 +42,11 @@ public class GameState {
 
     public ArrayList<Player> getAllPlayers(){return players;}
 
+    public boolean moveThief(Point p){
+        return false;
+    }
+
+//    public Player checkWin(){
+//        for(Player p: )
+//    }
 }

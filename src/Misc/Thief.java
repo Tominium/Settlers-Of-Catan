@@ -6,7 +6,6 @@ public class Thief {
     private Tile pos;
 
     public Thief(){
-        pos = p;
     }
 
     public Tile getLocation(){
