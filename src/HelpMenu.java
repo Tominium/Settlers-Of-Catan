@@ -58,7 +58,7 @@ public class HelpMenu extends JFrame {
         add(page);
 
 
-//create button to go to back to the main menu
+/*create button to go to back to the main menu
         backBtn = new JButton("Back To Main Menu");
         backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         backBtn.setBounds(10, 170, 300, 60);
@@ -69,7 +69,7 @@ public class HelpMenu extends JFrame {
             }
                                   });
         add(backBtn);
-
+*/
 
         previousPageBtn = new JButton("Previous Page");
         previousPageBtn.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -170,7 +170,7 @@ public class HelpMenu extends JFrame {
         add(page);
         add(nextPageBtn);
         add(previousPageBtn);
-        add(backBtn);
+        //add(backBtn);
         setVisible(true);
     }
 }

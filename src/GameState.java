@@ -16,6 +16,7 @@ public class GameState {
     private Thief thief;
 
     public GameState(int numOfPlayers){
+        
 
     }
 
