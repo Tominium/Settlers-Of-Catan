@@ -5,7 +5,7 @@ import TilePiece.Tile;
 public class Thief {
     private Tile pos;
 
-    public Thief(Tile p){
+    public Thief(){
         pos = p;
     }
 
