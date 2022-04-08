@@ -75,5 +75,3 @@ public class MainMenu extends JFrame {
         setVisible(true);
     }
 }
-
-
