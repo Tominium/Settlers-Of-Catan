@@ -2,9 +2,10 @@ package Panels.Components;
 
 import Logic.Player;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class GamePlayerInfoComp {
+public class GamePlayerInfoComp extends JPanel {
 
     private Player currentPlayer;
     private int rolledNum;

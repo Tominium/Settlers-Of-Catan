@@ -6,7 +6,7 @@ import Logic.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class InventoryPanel {
+public class InventoryPanel extends JPanel{
     private Player player;
     private JButton close;
     private GridBagLayout layout;

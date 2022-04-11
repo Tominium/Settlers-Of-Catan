@@ -4,12 +4,14 @@ import Misc.Token;
 import TilePiece.Tile;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import javax.swing.*;
 
-public class GameBoard extends JLayeredPane {
+public class GameBoard extends JLayeredPane implements MouseListener {
     private static final long serialVersionUID = 1L;
     private final int WIDTH = 1200;
     private final int HEIGHT = 800;
@@ -21,6 +23,7 @@ public class GameBoard extends JLayeredPane {
     FontMetrics metrics;
 
     public GameBoard() {
+        addMouseListener(this);
         ArrayList<String> intList = new ArrayList(Arrays.asList(nameList));
         Collections.shuffle(intList);
         Collections.shuffle(intList);
@@ -69,14 +72,6 @@ public class GameBoard extends JLayeredPane {
                 }
             }
             int[] temp = {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
-//            tokens.add(new Token(2)); tokens.add(new Token(12));
-//            for(int a=0; a<8; a++){
-//                if(ai==7){ai=8;}
-//                    tokens.add(new Token(ai));
-//                    tokens.add(new Token(ai));
-//                ai++;
-//            }
-//            Collections.shuffle(tokens);
             for(int tem: temp){
                 tokens.add(new Token(tem));
             }
@@ -239,10 +234,31 @@ public class GameBoard extends JLayeredPane {
             }
             left++;
         }
-        for(Tile t: temp){
-            if(t!=null){System.out.println(t.getType());}
-        }
         return temp;
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

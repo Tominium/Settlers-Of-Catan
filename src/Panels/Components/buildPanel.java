@@ -6,7 +6,7 @@ import Structures.Structure;
 import javax.swing.*;
 import java.awt.*;
 
-public class buildPanel {
+public class buildPanel extends JPanel{
 
     private Player player;
     private JButton close;
