@@ -5,7 +5,7 @@ import Logic.Player;
 import javax.swing.*;
 import java.util.TreeMap;
 
-public class TradePanel {
+public class TradePanel extends JPanel{
     private Player p1;
     private Player p2;
     private TreeMap<String, Integer> Inventory;
