@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.IOException;
 
+import Panels.Components.InventoryPanel;
 import Panels.GameBoard;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import Calculator.*;
@@ -17,7 +18,7 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new GameBoard());
+        add(new MainMenu());
         pack();
         setVisible(true);
         setLocationRelativeTo(null);

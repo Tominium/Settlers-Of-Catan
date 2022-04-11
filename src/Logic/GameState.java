@@ -117,11 +117,11 @@ public class GameState {
     }
 
     public static Port isOnPort(Structure s) {
-
+ return null;
     }
 
     public static HashMap<Player, LinkedList<String>> tokenResource(int num) {
-
+return null;
     }
 
     public static void build(Structure s) {
