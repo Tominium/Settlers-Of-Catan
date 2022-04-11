@@ -19,14 +19,7 @@ public class buildPanel {
 
 
     public buildPanel(Player player) {
-        this.player = player;
-        this.layout = new GridBagLayout();
-        this.control = new GridBagConstraints();
-        this.close = new JButton("Close");
-        this.road = new JButton("Road");
-        this.settlement = new JButton("Settlement");
-        this.city = new JButton("City");
-        this.chosen = null;
+
     }
 
     public void setChosen (Structure s){

@@ -15,18 +15,46 @@ public class TradePanel {
     private JButton trade;
     private String type;
 
-    TradePanel(Player p1, Player p2){
+    TradePanel(Player p1, Player p2) {
+        Inventory = new TreeMap<>();
+        p1Trade = new TreeMap<>();
+        p2Trade = new TreeMap<>();
+        next = new JButton("Next");
+        trade = new JButton("Trade");
         this.p1 = p1;
         this.p2 = p2;
-        this.Inventory = new TreeMap<>();
-        this.p1Trade = new TreeMap<>();
-        this.p2Trade = new TreeMap<>();
-        this.next = new JButton("Next");
-        this.trade = new JButton("Trade");
+    }
+
+    public void normalTrade() {
 
     }
 
+    public void portTrade() {
+    }
 
+    public void FourOneTrade() {
+    }
 
+    public void recordinventory(Player p){
 
+    }
+
+    public void chooseP1() {
+
+    }
+
+    public void chooseP2() {
+
+    }
+
+    public void getType() {
+    }
+
+    public void finalTradeInfo(TreeMap<String, Integer> p1Trade, TreeMap<String, Integer> p2Trade) {
+
+    }
 }
+
+
+
+
