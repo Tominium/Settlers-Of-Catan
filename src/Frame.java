@@ -18,7 +18,7 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new MainMenu());
+        add(new GameBoard());
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
