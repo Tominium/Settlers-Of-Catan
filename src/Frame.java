@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import Panels.GameBoard;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
+import Calculator.*;
 
 public class Frame extends JFrame {
 
@@ -20,6 +21,7 @@ public class Frame extends JFrame {
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
+
 /*
         //instantiate the buttons
         BackButton = new JButton("Back");
