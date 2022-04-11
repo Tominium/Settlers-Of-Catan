@@ -20,5 +20,9 @@ public class InventoryPanel {
         this.devCard = new DevelopmentCard();
     }
 
+    public void useDevCard(){
+
+    }
+
 
 }
