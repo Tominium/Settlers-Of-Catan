@@ -26,4 +26,18 @@ public class allPlayersSideComp extends JPanel{
     public void updateAll() {
 
     }
+
+    public static class playerComp extends JPanel{
+        private GridBagConstraints gbc;
+        private Player info;
+
+        public playerComp(Player p){
+            setLayout(new GridBagLayout());
+            info = p;
+            gbc = new GridBagConstraints();
+            JTextArea te = new JTextArea("Player " + info.getTurnNum());
+            te.setBackground(Color.WHITE);
+        }
+    }
 }
+
