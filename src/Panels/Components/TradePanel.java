@@ -16,28 +16,27 @@ public class TradePanel {
     private String type;
 
     TradePanel(Player p1, Player p2) {
+        Inventory = new TreeMap<>();
+        p1Trade = new TreeMap<>();
+        p2Trade = new TreeMap<>();
+        next = new JButton("Next");
+        trade = new JButton("Trade");
         this.p1 = p1;
         this.p2 = p2;
-        this.Inventory = new TreeMap<>();
-        this.p1Trade = new TreeMap<>();
-        this.p2Trade = new TreeMap<>();
-        this.next = new JButton("Next");
-        this.trade = new JButton("Trade");
     }
 
     public void normalTrade() {
-        type = "normal";
+
     }
 
     public void portTrade() {
-        type = "port";
     }
 
     public void FourOneTrade() {
-        type = "41";
     }
 
-    public void recordinventory(Player p) {
+    public void recordinventory(Player p){
+
     }
 
     public void chooseP1() {
