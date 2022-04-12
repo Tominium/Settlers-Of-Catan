@@ -44,7 +44,7 @@ public class GameBoard extends JLayeredPane implements MouseListener {
         metrics = g.getFontMetrics();
 
         drawCircle(g2d, origin, 400, true, true, 0x4488FF, 0);
-        drawHexGridLoop(origin, 5, 75, 3);
+        drawHexGridLoop(origin, 5, 75, 4);
         drawHex(g);
     }
 
