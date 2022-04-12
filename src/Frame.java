@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.IOException;
 
 import Panels.Components.InventoryPanel;
+import Panels.Components.allPlayersSideComp;
 import Panels.GameBoard;
 import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
 import Calculator.*;
