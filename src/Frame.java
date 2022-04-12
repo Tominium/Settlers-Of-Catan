@@ -23,6 +23,7 @@ public class Frame extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
 
+
 /*
         //instantiate the buttons
         BackButton = new JButton("Back");

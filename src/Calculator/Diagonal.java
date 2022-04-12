@@ -13,5 +13,6 @@ public class Diagonal {
         int pointY = (y + y2)/2;
         return new Point(pointX, pointY);
     }
+
 }
 
