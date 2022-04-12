@@ -1,25 +1,17 @@
 package Calculator;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Diagonal {
-    private static int x;
-    private static int y;
-    private static int x2;
-    private static int y2;
 
-    public Diagonal(int xx, int yy, int xx2, int yy2) {
-        x = xx;
-        y = yy;
-        x2 = xx2;
-        y2 = yy2;
-        calculate();
+    public Diagonal() {
     }
 
-    public static void calculate() {
+    public static Point calculate(int x, int y, int x2, int y2) {
         int pointX = (x + x2)/2;
         int pointY = (y + y2)/2;
-        System.out.print("(" + pointX + ", " + pointY + "), ");
+        return new Point(pointX, pointY);
     }
 }
 

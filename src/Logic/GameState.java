@@ -61,9 +61,10 @@ public class GameState {
         return players.get(winner);
     }
 
-    public static LinkedList<ResourceCard> getResourceInventory {
+    public static LinkedList<ResourceCard> getResourceInventory() {
         return players.get(turnNumber).getRC();
     }
+
     public static int iterateTurn() {
         return turnNumber+1;
     }
