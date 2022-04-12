@@ -3,13 +3,14 @@ package Structures;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.Raster;
 import java.io.IOException;
 import java.util.Objects;
 
 public class Structure {
     private String type;
     private String color;
-    private BufferedImage image;
+    public BufferedImage image;
     private Point pos;
     private boolean isVisible;
 
@@ -19,7 +20,7 @@ public class Structure {
         this.pos = pos;
         this.isVisible = true;
         try {
-            image = ImageIO.read(Structure.class.getResource(type+"/"+color+".png"));
+            image = ImageIO.read(Structure.class.getResource("/Assets/"+type+"/"+color+".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,5 +65,48 @@ public class Structure {
     @Override
     public int hashCode() {
         return Objects.hash(type, color, pos);
+    }
+
+    public BufferedImage resize(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+    }
+
+    public BufferedImage crop(BufferedImage image) {
+        int minY = 0, maxY = 0, minX = Integer.MAX_VALUE, maxX = 0;
+        boolean isBlank, minYIsDefined = false;
+        Raster raster = image.getRaster();
+
+        for (int y = 0; y < image.getHeight(); y++) {
+            isBlank = true;
+
+            for (int x = 0; x < image.getWidth(); x++) {
+                //Change condition to (raster.getSample(x, y, 3) != 0)
+                //for better performance
+                if (raster.getPixel(x, y, (int[]) null)[3] != 0) {
+                    isBlank = false;
+
+                    if (x < minX) minX = x;
+                    if (x > maxX) maxX = x;
+                }
+            }
+
+            if (!isBlank) {
+                if (!minYIsDefined) {
+                    minY = y;
+                    minYIsDefined = true;
+                } else {
+                    if (y > maxY) maxY = y;
+                }
+            }
+        }
+
+        return image.getSubimage(minX, minY, maxX - minX + 1, maxY - minY + 1);
     }
 }

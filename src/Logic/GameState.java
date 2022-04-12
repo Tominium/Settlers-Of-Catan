@@ -1,6 +1,7 @@
 package Logic;
 
 import Cards.DevelopmentCard;
+import Cards.ResourceCard;
 import Misc.Dice;
 import Misc.Thief;
 import Panels.GameBoard;
@@ -58,6 +59,10 @@ public class GameState {
     public static Player checkWin() {
         int winner = 0;
         return players.get(winner);
+    }
+
+    public static LinkedList<ResourceCard> getResourceInventory() {
+        return players.get(turnNumber).getRC();
     }
 
     public static int iterateTurn() {

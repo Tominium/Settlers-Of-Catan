@@ -1,10 +1,10 @@
 package Calculator;
+
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Vertical {
 
-    public Vertical(int xx, int xx2, int yy) {
+    public Vertical() {
     }
 
     public static Point calculate(int xx, int xx2, int yy) {
