@@ -65,6 +65,10 @@ public class GameState {
         return players.get(turnNumber).getRC();
     }
 
+    public static LinkedList<DevelopmentCard> getDevelopmentInventory() {
+        return players.get(turnNumber).getDC();
+    }
+
     public static int iterateTurn() {
         return turnNumber+1;
     }

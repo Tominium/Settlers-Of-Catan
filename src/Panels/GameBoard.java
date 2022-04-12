@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import javax.swing.*;
+import Calculator.*;
 
 public class GameBoard extends JLayeredPane implements MouseListener {
     private static final long serialVersionUID = 1L;
@@ -83,10 +84,16 @@ public class GameBoard extends JLayeredPane implements MouseListener {
                     ai++;
                 }
             }
+
             for(int il = 0; il < tilesBook.size(); il++){
                 System.out.println(tilesBook.get(il).getCenter());
             }
+
         }
+
+        SideRoads s13 = new SideRoads(688, 284, 2);
+        s13.diagonal();
+
     }
 
     private void drawHex(Graphics g) {
