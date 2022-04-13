@@ -8,7 +8,6 @@ import Calculator.*;
 
 public class Frame extends JFrame {
 
-    private JButton BackButton;
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 1000;
 
@@ -18,7 +17,7 @@ public class Frame extends JFrame {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         setResizable(false);
-        add(new GameBoard());
+        this.getContentPane().add(new MainMenu(this));
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -40,8 +39,11 @@ public class Frame extends JFrame {
 */
     }
 
-    public static void main (String[]args) throws IOException {
-        FlatSolarizedLightIJTheme.setup();
-        new MainMenu();
+    public void addGameBoard() {
+        this.getContentPane().removeAll();
+        this.getContentPane().add(new GameBoard());
+        this.getContentPane().repaint();
+        this.getContentPane().revalidate();
     }
+
 }
