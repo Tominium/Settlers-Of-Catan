@@ -9,6 +9,8 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class allPlayersSideComp extends JPanel{
@@ -19,8 +21,10 @@ public class allPlayersSideComp extends JPanel{
 
     public allPlayersSideComp() {
         players = new ArrayList<Player>();
-        players.add(new Player("red", 0));
-        players.add(new Player("blue", 1));
+        players.add(new Player("red", 1));
+        players.add(new Player("blue", 2));
+        players.add(new Player("green", 3));
+        players.add(new Player("orange", 4));
         setLayout(new GridBagLayout());
         control = new GridBagConstraints();
         comps = new ArrayList<>();
@@ -28,7 +32,7 @@ public class allPlayersSideComp extends JPanel{
         for(Player pp: players){
             comps.add(new playerComp(pp));
             control.gridy=i;
-            control.weighty = 5;
+            control.weighty = 40;
             control.gridx=0;
             add(comps.get(comps.size()-1), control);
             i++;
@@ -53,13 +57,15 @@ public class allPlayersSideComp extends JPanel{
 
         public playerComp(Player p){
             info = p;
+            setBackground();
             updateText();
-            setBackground(Color.GRAY);
+            setFont(loadFont("/Assets/ArchitectsDaughter.ttf", 15f));
             setText(text);
             setEditable(false);
             setOpaque(false);
             setBorder(null);
-            setRadius(20);
+            setRadius(75);
+
 
             setDragEnabled(false);
             StyledDocument doc = this.getStyledDocument();
@@ -116,6 +122,25 @@ public class allPlayersSideComp extends JPanel{
         public Insets getInsets() {
             int value = getRadius() / 2;
             return new Insets(value, value, value, value);
+        }
+
+        public Font loadFont(String path, float size){
+            try {
+                InputStream fileStream = this.getClass().getResourceAsStream(path);
+                Font myFont = Font.createFont(Font.TRUETYPE_FONT, fileStream);
+                return myFont.deriveFont(Font.PLAIN, size);
+            } catch (FontFormatException | IOException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+            return null;
+        }
+
+        public void setBackground(){
+            if(info.getColor().toLowerCase().equals("red")){setBackground(new Color(172, 44, 7));}
+            else if(info.getColor().toLowerCase().equals("green")){setBackground(new Color(87,172,57));}
+            else if(info.getColor().toLowerCase().equals("orange")){setBackground(new Color(225,99,40, 255));}
+            else{setBackground(new Color(79,166,235));}
         }
     }
 
