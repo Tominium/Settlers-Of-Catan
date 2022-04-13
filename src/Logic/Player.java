@@ -46,6 +46,14 @@ public class Player {
         }
     }
 
+    public int getPoints(){
+        int cnt = 0;
+        for(DevelopmentCard d: devCards){
+            cnt+=d.getPoints();
+        }
+        return cnt;
+    }
+
 
 
 
