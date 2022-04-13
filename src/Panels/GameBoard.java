@@ -91,7 +91,7 @@ public class GameBoard extends JLayeredPane implements MouseListener {
 
         }
 
-        SideRoads s13 = new SideRoads(688, 284, 2);
+        SideRoads s13 = new SideRoads(600, 163, 1);
         s13.diagonal();
 
     }

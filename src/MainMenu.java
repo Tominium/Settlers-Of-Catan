@@ -1,20 +1,25 @@
+import Logic.GameState;
+import Panels.GameBoard;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
-public class MainMenu extends JFrame {
+public class MainMenu extends JPanel implements MouseListener {
     private static final int WIDTH = 1400;
-    private static final int HEIGHT = 700;
+    private static final int HEIGHT = 800;
     private JButton startButton;
     private JButton helpButton;
     private JButton exitButton;
 
-    public MainMenu() {
-        super("Settlers of Catan");
+    public MainMenu(Frame f) {
+        //super("Settlers of Catan");
 
-        Container win = getContentPane();
+        JPanel win = this;
         win.setLayout(null);
 
         JLabel heading = new JLabel("Settlers of Catan");
@@ -35,16 +40,11 @@ public class MainMenu extends JFrame {
         startButton.setBounds(380, 430, 200, 35);
         //startButton.setVisible(false);
         win.add(startButton);
-        JFrame frame = this;
+        JPanel frame = this;
         startButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedIndex() != 0){
-                    try {
-                        new Frame();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    dispose();}
+                    f.addGameBoard();}
                 else if(list.getSelectedIndex()==0){
                     JOptionPane.showMessageDialog(frame,
                             "Please Choose The Number Of Players",
@@ -64,9 +64,32 @@ public class MainMenu extends JFrame {
             }
         });
 
-        setSize(WIDTH, HEIGHT);
-        setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
-        setResizable(false);
         setVisible(true);
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

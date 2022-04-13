@@ -17,7 +17,7 @@ import java.util.LinkedList;
 
 public class GameState {
 
-    private static ArrayList<Player> players;
+    public static ArrayList<Player> players;
     private static ArrayList<Tile> tiles;
     private static int turnNumber;
     private static GameBoard gameBoard;
@@ -33,6 +33,7 @@ public class GameState {
         tiles = new ArrayList<Tile>();
         dice = new Dice();
         thief = new Thief();
+        Frame f = new Frame();
     }
 
     private static void setColors(int num){
