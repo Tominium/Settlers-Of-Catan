@@ -58,8 +58,10 @@ public class GameState {
 //    }
 
     public static Player checkWin() {
-        int winner = 0;
-        return players.get(winner);
+        for(int i = 0; i < players.size(); i++)
+            if(players.get(i).getPoints()>=10)
+                return players.get(i);
+        return null;
     }
 
     public static LinkedList<ResourceCard> getResourceInventory() {
@@ -74,16 +76,51 @@ public class GameState {
         return turnNumber+1;
     }
 
-    public static boolean canTrade(Player p) {
-        return true;
+    public static void canTrade(Player p, ResourceCard[] send, ResourceCard[] receive) {
+        if (players.get(turnNumber).getRC().contains(send)&&p.getRC().contains(receive))
+            trade(p, send, receive);
     }
 
-    public static void trade() {
 
+    public static void trade(Player p, ResourceCard[] send, ResourceCard[] receive) {
+        for(int i = 0; i < send.length; i++) {
+            p.addRC(send[i]);
+            players.get(turnNumber).removeRCard(send[i]);
+        }
+        for(int i = 0; i < receive.length; i++) {
+            players.get(turnNumber).addRC(receive[i]);
+            p.removeRCard(receive[i]);
+        }
     }
 
     public static boolean canBuild(Structure s) {
-        return true;
+
+        ResourceCard[] road = new ResourceCard[2];
+        road[0] = new ResourceCard("brick");
+        road[1] = new ResourceCard("lumber");
+        ResourceCard[] settlement = new ResourceCard[4];
+        road[0] = new ResourceCard("brick");
+        road[1] = new ResourceCard("lumber");
+        road[2] = new ResourceCard("wheat");
+        road[3] = new ResourceCard("wool");
+        ResourceCard[] city = new ResourceCard[5];
+        road[0] = new ResourceCard("wheat");
+        road[1] = new ResourceCard("wheat");
+        road[2] = new ResourceCard("ore");
+        road[3] = new ResourceCard("ore");
+        road[4] = new ResourceCard("ore");
+
+
+        if(s.getType().equals("road"))
+            return hasResources(road);
+        else if(s.getType().equals("settlement"))
+            return hasResources(settlement);
+        else
+            return hasResources(city);
+    }
+
+    public static boolean hasResources(ResourceCard[] needed) {
+        return players.get(turnNumber).getRC().contains(needed);
     }
 
     public static boolean canPlace(Structure s, Point p) {
@@ -99,6 +136,7 @@ public class GameState {
     }
 
     public static void rollSeven() {
+
 
     }
 
@@ -127,11 +165,11 @@ public class GameState {
     }
 
     public static Port isOnPort(Structure s) {
- return null;
+        return null;
     }
 
     public static HashMap<Player, LinkedList<String>> tokenResource(int num) {
-return null;
+        return null;
     }
 
     public static void build(Structure s) {
@@ -139,6 +177,8 @@ return null;
     }
 
     public static void useDevCard(DevelopmentCard dc) {
-
+        for(int i = 0; i < players.get(turnNumber).getDC().size(); i++)
+            if(players.get(turnNumber).getDC().get(i).equals(dc))
+                players.get(turnNumber).removeDCard(players.get(turnNumber).getDC().get(i));
     }
 }

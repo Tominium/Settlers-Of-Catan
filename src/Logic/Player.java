@@ -22,8 +22,11 @@ public class Player {
         structures = new LinkedList<>();
     }
 
-    public void removeCard(ResourceCard c){
+    public void removeRCard(ResourceCard c){
         resourceCards.remove(c);
+    }
+    public void removeDCard(DevelopmentCard c){
+        devCards.remove(c);
     }
 
     public String getColor(){return color;}
