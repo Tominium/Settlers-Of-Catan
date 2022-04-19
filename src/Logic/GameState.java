@@ -141,19 +141,33 @@ public class GameState {
     }
 
     public static void giveLongestRoad(Player p) {
-
+        for(int i = 0; i < players.size(); i++)
+            if (players.get(i).getHasLR() == true)
+                players.get(i).setHasLR(false);
+        p.setHasLR(true);
     }
 
     public static void giveLargestArmy(Player p) {
-
+        for(int i = 0; i < players.size(); i++)
+            if (players.get(i).getHasLA() == true)
+                players.get(i).setHasLA(false);
+        p.setHasLA(true);
     }
 
     public static Player longestRoad() {
-        return players.get(0);
+        for(int i = 0; i < players.size(); i++) {
+            if (players.get(i).getHasLR() == true)
+                return players.get(i);
+        }
+        return null;
     }
 
     public static Player largestArmy() {
-        return players.get(0);
+        for(int i = 0; i < players.size(); i++) {
+            if (players.get(i).getHasLA() == true)
+                return players.get(i);
+        }
+        return null;
     }
 
     public static void steal(Player p) {
@@ -172,8 +186,8 @@ public class GameState {
         return null;
     }
 
-    public static void build(Structure s) {
-
+    public static void build(Structure s, Point p) {
+        s.setPos(p);
     }
 
     public static void useDevCard(DevelopmentCard dc) {

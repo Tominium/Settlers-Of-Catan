@@ -13,6 +13,7 @@ public class Player {
     private LinkedList<DevelopmentCard> devCards;
     private LinkedList<Structure> structures;
     private int turnNum;
+    private boolean hasLR, hasLA;
 
     public Player(String c, int turn){
         color = c;
@@ -57,6 +58,21 @@ public class Player {
         return cnt;
     }
 
+    public void setHasLR(boolean b) {
+        hasLR = b;
+    }
+
+    public void setHasLA(boolean b) {
+        hasLA = b;
+    }
+
+    public boolean getHasLR() {
+        return hasLR;
+    }
+
+    public boolean getHasLA() {
+        return hasLA;
+    }
 
 
 
