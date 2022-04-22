@@ -1,5 +1,6 @@
 package Panels;
 
+import TilePiece.TilePosition;
 import Misc.Token;
 import TilePiece.Tile;
 
@@ -64,9 +65,13 @@ public class GameBoard extends JLayeredPane implements MouseListener {
                 for (int col = 0; col < cols; col++) {
                     int xLbl = row < half ? col - row : col - half;
                     int yLbl = row - half;
+
+
                     int x = (int) (origin.x + xOff * (col * 2 + 1 - cols));
                     int y = (int) (origin.y + yOff * (row - half) * 3);
-                    tilesBook.add(new Tile(x, y, radius, nameList[i]));
+
+                    TilePosition h = new TilePosition(x, y);
+                    tilesBook.add(new Tile(h, radius, nameList[i]));
                     i++;
 
                     //drawHex(g, xLbl, yLbl, x, y, radius);

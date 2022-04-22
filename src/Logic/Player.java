@@ -55,6 +55,10 @@ public class Player {
         for(DevelopmentCard d: devCards){
             cnt+=d.getPoints();
         }
+        if(getHasLA())
+            cnt+=2;
+        if(getHasLR())
+            cnt+=2;
         return cnt;
     }
 
@@ -74,6 +78,13 @@ public class Player {
         return hasLA;
     }
 
-
+    public int getNumKnightCards() {
+        int count = 0;
+        for(int i = 0; i < devCards.size(); i++) {
+            if(devCards.get(i).getType().equals("knight"))
+                count++;
+        }
+        return count;
+    }
 
 }

@@ -1,10 +1,10 @@
 package Structures;
 
-import java.awt.*;
+import Logic.IntersectionPosition;
 
 public class City extends Structure{
 
-    public City(String type, String color, Point pos) {
+    public City(String type, String color, IntersectionPosition pos) {
         super(type, color, pos);
     }
 }

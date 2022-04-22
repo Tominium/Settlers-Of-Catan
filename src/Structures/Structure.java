@@ -1,5 +1,7 @@
 package Structures;
 
+import Logic.IntersectionPosition;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,10 +13,10 @@ public class Structure {
     private String type;
     private String color;
     public BufferedImage image;
-    private Point pos;
+    private IntersectionPosition pos;
     private boolean isVisible;
 
-    public Structure(String type, String color, Point pos) {
+    public Structure(String type, String color, IntersectionPosition pos) {
         this.type = type;
         this.color = color;
         this.pos = pos;
@@ -46,11 +48,11 @@ public class Structure {
         return this.color;
     }
 
-    public Point getPos() {
+    public IntersectionPosition getPos() {
         return this.pos;
     }
 
-    public void setPos(Point pos) {
+    public void setPos(IntersectionPosition pos) {
         this.pos = pos;
     }
 

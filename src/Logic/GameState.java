@@ -26,6 +26,8 @@ public class GameState {
     //private DevelopmentDeck dcDeck;
     private static Dice dice;
     private static Thief thief;
+    private static int max = 3;
+    private static Player LAPlayer;
 
     public GameState(int numOfPlayers){
         players = new ArrayList<Player>();
@@ -34,6 +36,7 @@ public class GameState {
         dice = new Dice();
         thief = new Thief();
         Frame f = new Frame();
+        LAPlayer = null;
     }
 
     private static void setColors(int num){
@@ -163,11 +166,24 @@ public class GameState {
     }
 
     public static Player largestArmy() {
+        if(LAPlayer == null)
+            max = 3;
+        else
+            max = LAPlayer.getNumKnightCards();
+
         for(int i = 0; i < players.size(); i++) {
-            if (players.get(i).getHasLA() == true)
-                return players.get(i);
+
+            for (int j = 0; j < players.get(i).getDC().size(); i++)
+                if(LAPlayer==null&&players.get(i).getNumKnightCards()==max) {
+                    LAPlayer = players.get(i);
+                }
+                if (players.get(i).getNumKnightCards()>max) {
+                    LAPlayer = players.get(i);
+                    max = players.get(i).getNumKnightCards();
+                }
+
         }
-        return null;
+        return LAPlayer;
     }
 
     public static void steal(Player p) {
